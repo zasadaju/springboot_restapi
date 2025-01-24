@@ -1,19 +1,25 @@
 version: "3.8"
 services:
-  # 1 kontener z bazą
+
+#Kontener mongodb
   mongodb:
     image: 'mongo'
     ports:
       - "27017:27017"
-#    environment:
-#      - 'MONGO_INITDB_DATABASE=mydatabase'
-#      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-#      - 'MONGO_INITDB_ROOT_USERNAME=root'
-  # 2 kontenter z aplikacją
-  app:
+    volumes:
+      - mongo_data:/data/db
+
+#Kontener spring-boot
+  springboot-app:
     build: .
+    container_name: springboot-app
     ports:
       - "8080:8080"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/test
     depends_on:
       - mongodb
+
+volumes:
+  mongo_data:
 
