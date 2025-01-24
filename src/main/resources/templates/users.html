@@ -26,7 +26,8 @@
                     <a th:href="@{'users/edit/' + ${user.id}}">Edytuj</a>
                 </td>
                 <td>
-                    <form th:action="@{'/users/delete' +${user.id}}" method="post" style="display: inline;">
+                    <form th:action="@{/users/delete/{id}(id=${user.id})}" method="post" style="display: inline;">
+                        <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf_token}" />
                         <button type="submit">Usuń</button>
                     </form>
                 </td>
