@@ -30,8 +30,3 @@ volumes:
   mongo_data:
 networks:
   springboot-network:
-
-
-
-
-
