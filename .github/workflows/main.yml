@@ -41,8 +41,8 @@ jobs:
           script: |
             ls -lah
             cd projekt-spring-boot-2/spring-docker/
-            docker build -t przyklad1-app .
-          
+            docker build --rm -t spring-mongodb-image .
+            docker compose up --build
           
 
           
