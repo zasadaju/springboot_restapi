@@ -20,6 +20,9 @@ jobs:
 
       - name: Build Maven
         run: mvn clean package --file pom.xml
+
+      - name: Run Docker Compose
+        run: docker compose up -d
       
       - name: Executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.2.0
@@ -28,6 +31,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: whoami
+          script: |
+            cd projekt-spring-boot-2/spring-docker/
+            sudo docker build -t przyklad1-app .
+          
+          
 
           
