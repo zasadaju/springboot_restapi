@@ -41,7 +41,7 @@ jobs:
           script: |
             ls -lah
             cd projekt-spring-boot-2/spring-docker/
-            sudo docker build -t przyklad1-app .
+            docker build -t przyklad1-app .
           
           
 
