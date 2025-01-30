@@ -42,7 +42,7 @@ jobs:
             ls -lah
             cd projekt-spring-boot-2/spring-docker/
             docker build --rm -t spring-mongodb-image .
-            docker compose up --build
+            docker compose up -d --build
           
 
           
