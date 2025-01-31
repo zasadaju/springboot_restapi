@@ -42,8 +42,9 @@ jobs:
             ls -lah
             cd projekt-spring-boot-2/spring-docker/
             git pull origin main
+            cat 
             mvn clean package
-            docker build --rm -t spring-mongodb-image .
+            docker build --rm -t spring-mongodb-image -f backend/Dockerfile .
             docker compose down
             docker compose up -d --build
           
