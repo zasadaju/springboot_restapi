@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Maven
-        run: mvn clean package --file pom.xml
+        run: mvn clean package --file backend/pom.xml
 
       - name: Run Docker Compose
         run: docker compose up -d
@@ -42,8 +42,9 @@ jobs:
             ls -lah
             cd projekt-spring-boot-2/spring-docker/
             git pull origin main
-            cat 
+            cd backend
             mvn clean package
+            cd ..
             docker build --rm -t spring-mongodb-image -f backend/Dockerfile .
             docker compose down
             docker compose up -d --build
