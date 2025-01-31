@@ -16,6 +16,9 @@ module.exports = {
         pathRewrite: {'^/api':''}, //usuwamy /api z url przed przekazaniem do backendu
         ws: false //wyłącza websocket
       },
+    },
+    client: {
+      webSocketURL: 'auto://0.0.0.0/ws'
     }
   }
 }
