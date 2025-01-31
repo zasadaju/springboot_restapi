@@ -16,6 +16,7 @@ services:
   springboot-app:
     build:
       context: .
+      dockerfile: backend/Dockerfile
     container_name: springboot-app
     ports:
       - "80:8080"
