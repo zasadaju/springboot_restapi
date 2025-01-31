@@ -4,3 +4,9 @@
         <p>Aplikacja ćwiczeniowa Spring Boot & Vue.js</p>
     </div>
 </template>
+
+<script>
+    export default {
+        name: "HomeView"
+    };
+</script>
