@@ -9,6 +9,7 @@ import com.aplikacja.przyklad1.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://135.224.16.69:8081")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
