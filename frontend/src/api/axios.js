@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://135.224.16.69:8080/api", // Adres backendu
+  baseURL: "/api", // NIE używamy pełnego adresu IP
   headers: { "Content-Type": "application/json" },
-  withCredentials: true // WYMAGANE dla Spring Security
+  withCredentials: true, // Wymagane dla Spring Security
 });
 
 export function login(username, password) {

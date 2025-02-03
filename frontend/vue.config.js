@@ -1,24 +1,14 @@
-// const { defineConfig } = require('@vue/cli-service')
-// module.exports = defineConfig({
-
-//   transpileDependencies: true
-// })
-
-
 module.exports = {
   devServer: {
     hot: false,
     liveReload: false,
     proxy: {
-      '/api': { //każde żądanie zaczynającie się od /api będzie przekierowane
-        target: 'http://135.224.16.69:8080', //docelowy backend działa porcie 8080
-        changeOrigin: true, //podmiana nagłówka origin w żądaniu
-        pathRewrite: {'^/api':''}, //usuwamy /api z url przed przekazaniem do backendu
-        ws: false //wyłącza websocket
+      "/api": {
+        target: "http://135.224.16.69:8080", // Backend Spring Boot
+        secure: false, // Jeśli backend nie ma certyfikatu SSL, ustaw na false
+        changeOrigin: true, // Ustawia poprawne origin dla backendu
+        pathRewrite: { "^/api": "" }, // Usuwa `/api` z adresu URL
       },
     },
-    client: {
-      webSocketURL: 'auto://0.0.0.0/ws'
-    }
-  }
-}
+  },
+};
