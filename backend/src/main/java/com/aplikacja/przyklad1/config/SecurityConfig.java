@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 public class SecurityConfig {
@@ -14,18 +15,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
-            .authorizeRequests()
-                .antMatchers("/api/users/**").authenticated()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/users/**").authenticated()  // Zamienione z antMatchers()
                 .anyRequest().permitAll()
-            .and()
-            .formLogin()
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/", true)
-                .permitAll()
-            .and()
-            .logout()
+            )
+            .formLogin(withDefaults())  // Włączenie domyślnego logowania
+            .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll());
 
         return http.build();
     }
