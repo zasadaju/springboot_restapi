@@ -12,7 +12,7 @@
   
   <script>
   import { ref } from "vue";
-  import apiClient from "@/api/axios.js";
+  import { login } from "@/api/axios.js";
   import { useRouter } from "vue-router";
   
   export default {
@@ -22,21 +22,18 @@
       const errorMessage = ref("");
       const router = useRouter();
   
-      const login = async () => {
+      const loginUser = async () => {
         try {
-          await apiClient.post(
-            "/login",
-            new URLSearchParams({ username: username.value, password: password.value }),
-            { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
-          );
-          router.push("/users"); // Przekierowanie na listę użytkowników po zalogowaniu
+          await login(username.value, password.value);
+          localStorage.setItem("isAuthenticated", "true"); // Zapamiętaj logowanie
+          router.push("/users"); // Przekierowanie na listę użytkowników
         } catch (error) {
-          errorMessage.value = "Błąd logowania. Sprawdź dane!";
+          errorMessage.value = "Błąd logowania!";
           console.error("Błąd logowania:", error);
         }
       };
   
-      return { username, password, login, errorMessage };
+      return { username, password, login: loginUser, errorMessage };
     }
   };
   </script>
