@@ -3,6 +3,7 @@ import HomeView from './views/HomeView.vue';
 import UsersView from './views/UsersView.vue';
 import AboutView from './views/AboutView.vue';
 import UserDetails from './views/UserDetails.vue';
+import LoginView from "@/views/LoginView.vue";
 
 
 
@@ -13,6 +14,7 @@ const routes = [
     { path:'/users', component: UsersView },
     { path: '/users/:id', component: UserDetails },
     { path:'/about', component: AboutView },
+    { path: "/login", component: LoginView }
 ];
 
 //Tworzenie routera
