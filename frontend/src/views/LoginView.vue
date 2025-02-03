@@ -13,7 +13,7 @@
   <script>
   import { ref } from "vue";
   import { useRouter } from "vue-router";
-  import axios from "axios";
+  import { login } from "@/api/axios.js";
   
   export default {
     setup() {
@@ -24,16 +24,9 @@
   
       const loginUser = async () => {
         try {
-          const response = await axios.post(
-            "http://135.224.16.69:8080/login",
-            new URLSearchParams({ username: username.value, password: password.value }),
-            { headers: { "Content-Type": "application/x-www-form-urlencoded" }, withCredentials: true }
-          );
-  
-          if (response.status === 200) {
-            localStorage.setItem("isAuthenticated", "true");
-            router.push("/users");
-          }
+          await login(username.value, password.value);
+          localStorage.setItem("isAuthenticated", "true");
+          router.push("/users");
         } catch (error) {
           errorMessage.value = "Błąd logowania!";
           console.error("Błąd logowania:", error);
