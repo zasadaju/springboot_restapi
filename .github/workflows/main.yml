@@ -46,8 +46,8 @@ jobs:
             mvn clean package
             docker build --rm -t spring-mongodb-image -f Dockerfile .
             cd ..
-            docker compose down
-            docker compose up -d --build
+            docker-compose down
+            docker-compose up -d --build
           
 
           
