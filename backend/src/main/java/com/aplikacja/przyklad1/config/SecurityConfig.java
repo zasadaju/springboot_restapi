@@ -13,6 +13,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.util.List;
 
 @Configuration
@@ -34,10 +39,10 @@ public class SecurityConfig {
             .formLogin(login -> login
                 .successHandler(new SimpleUrlAuthenticationSuccessHandler() {
                     @Override
-                    protected void handle(javax.servlet.http.HttpServletRequest request,
-                                          javax.servlet.http.HttpServletResponse response,
-                                          org.springframework.security.core.Authentication authentication) 
-                            throws java.io.IOException {
+                    protected void handle(HttpServletRequest request,
+                                          HttpServletResponse response,
+                                          org.springframework.security.core.Authentication authentication)
+                            throws IOException {
                         response.setStatus(HttpStatus.OK.value());
                         response.getWriter().write("{\"message\": \"Login successful\"}");
                         response.getWriter().flush();
