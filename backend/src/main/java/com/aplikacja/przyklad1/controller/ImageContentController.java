@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://20.121.42.213:8081")
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/content")
 public class ImageContentController {
     @Autowired
     private ImageContentRepository imageContentRepository;
@@ -67,4 +67,7 @@ public class ImageContentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+
 }

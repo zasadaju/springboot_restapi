@@ -26,7 +26,7 @@
         },
         methods: {
             fetchContents() {
-                axios.get('http://20.121.42.213:8080/api/users')
+                axios.get('http://20.121.42.213:8080/api/content')
                 .then(response => {
                     this.contents = response.data;
                 })
