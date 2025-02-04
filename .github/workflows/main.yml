@@ -40,7 +40,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ls -lah
-            cd cwiczenie_03.02.2025/
+            cd cwiczenie_03.02.2025/springboot_restapi/
             git pull origin main
             cd backend
             mvn clean package
