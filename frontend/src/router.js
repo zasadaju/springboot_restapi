@@ -16,7 +16,7 @@ const routes = [
     { path: '/users/:id', component: UserDetails },
     { path:'/about', component: AboutView },
     { path: "/login", component: LoginView },
-    { path: "/um", component: UserManagement }
+    { path: "/um", component: UserManagement}
 ];
 
 //Tworzenie routera

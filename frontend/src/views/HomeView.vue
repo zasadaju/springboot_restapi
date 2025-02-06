@@ -10,30 +10,31 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from 'axios';
+
     // export default {
     //     name: "HomeView"
     // };
-    
-    export default {
-        data() {
-            return {
-                contents: []
-            };
-        },
-        created() {
-            this.fetchContents();
-        },
-        methods: {
-            fetchContents() {
-                axios.get('http://20.121.42.213:8080/api/content')
-                .then(response => {
-                    this.contents = response.data;
-                })
-                .catch(error => {
-                    console.error('Błędy w pobranej treści', error);
-                });
-            }
+export default {
+    data() {
+        return {
+            contents: []
+        };
+    },
+    created() {
+        this.fetchContents();
+    },
+    methods: {
+        fetchContents() {
+            axios.get('http://20.121.42.213:8080/api/content')
+            .then(respone => {
+                this.contents = respone.data;
+            })
+            .catch(error => {
+                console.error('Błędy w pobieranej treści', error);
+            });
         }
     }
+}
+
 </script>

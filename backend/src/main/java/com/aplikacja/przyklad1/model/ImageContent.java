@@ -5,29 +5,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "content")
 public class ImageContent {
-    @Id
+    
+    @Id 
     private String id;
     private String text;
     private String imageUrl;
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
+// Id
+public String getId() {
+    return id;
+}
+public void setId(String id) {
+    this.id = id;
+}
 
-    public String getText() {
-        return text;
-    }
-    public void setText(String text) {
-        this.text = text;
-    }
+// Tekst
+public String getText() {
+    return text;
+}
+public void setText(String text) {
+    this.text = text;
+}
+    
+// Zdjęcia
+public String getImageUrl() {
+    return imageUrl;
+}
+public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+}
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+
 }
