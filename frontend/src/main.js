@@ -50,7 +50,6 @@ const i18n = createI18n({
     messages,
 }); 
 
-
 const app = createApp(App);
 
 app.use(BootstrapVue3);
