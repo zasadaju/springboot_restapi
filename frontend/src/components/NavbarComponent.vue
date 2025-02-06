@@ -7,10 +7,10 @@
   
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#"><router-link to="/">Strona główna</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/about">O nas</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/users">Lista użytkowników</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/um">Zarzązanie użytkownikami</router-link></b-nav-item>
+          <b-nav-item href="#"><router-link to="/">{{ $t ('navbar.home') }}</router-link></b-nav-item>
+          <b-nav-item href="#"><router-link to="/about">{{ $t ('navbar.about') }}</router-link></b-nav-item>
+          <b-nav-item href="#"><router-link to="/users">{{ $t ('navbar.userList') }}</router-link></b-nav-item>
+          <b-nav-item href="#"><router-link to="/um">{{ $t ('navbar.userManagement') }}</router-link></b-nav-item>
         </b-navbar-nav>
   
         <!-- Right aligned nav items -->
