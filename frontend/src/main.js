@@ -5,7 +5,7 @@ import { BootstrapVue3, IconsPlugin } from 'bootstrap-vue-3'
 import 'bootstrap/dist/css/bootstrap.css'
 import { createI18n } from 'vue-i18n';
 
-function locadLocaleMessages() {
+function loadLocaleMessages() {
     const locales = require.context('./assets/i18n', true, /[A-Za-z0-9-_,\s]+\.json$/i);
     const messages = {};
     locales.keys().forEach(key => {
